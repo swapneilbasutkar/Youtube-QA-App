@@ -168,7 +168,3 @@ Key dependencies:
 - **OpenAI**: Language model and embeddings
 - **FAISS**: Vector database for semantic search
 - **YouTube Transcript API**: Fetching video transcripts
-
-## License
-
-This project is for educational purposes. Make sure to comply with YouTube's Terms of Service and OpenAI's usage policies.
