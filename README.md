@@ -42,7 +42,7 @@ A full-stack application that allows users to ask questions about YouTube videos
 
 ### Running the Application
 
-#### Method 1: Separate Terminals (Recommended for Development)
+#### Method 1: Separate Terminals (without Docker)
 
 1. **Start the FastAPI Backend**
 
@@ -58,7 +58,29 @@ A full-stack application that allows users to ask questions about YouTube videos
    ```
    The frontend will be available at: http://localhost:8501
 
-#### Method 2: Using uvicorn directly
+#### Method 2: Run with Docker (Recommended)
+
+1. **Create a .env file in root directory:**
+
+   ```bash
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+2. **Build and run containers**
+
+   ```bash
+   docker compose up --build
+   ```
+
+3. **Access the app**
+
+   - Streamlit frontend → http://localhost:8501
+   - FastAPI backend → http://localhost:8000
+
+4. **Stop container**
+   ```bash
+   docker compose down
+   ```
 
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
