@@ -4,7 +4,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: backend/Dockerfile.backend
     container_name: youtube-qa-backend
     ports:
       - "8000:8000"
@@ -14,7 +14,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile.frontend
+      dockerfile: frontend/Dockerfile.frontend
     container_name: youtube-qa-frontend
     ports:
       - "8501:8501"

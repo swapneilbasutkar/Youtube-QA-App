@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY streamlit_app.py .
+COPY frontend/streamlit_app.py .
 
 ENV API_BASE_URL=http://backend:8000
 
