@@ -89,12 +89,36 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ### File Structure
 
 ```
-youtube-qa-app/
-├── main.py                 # FastAPI backend
-├── streamlit_app.py        # Streamlit frontend
-├── requirements.txt        # Python dependencies
-├── .env                   # Environment variables
-└── README.md              # This file
+Youtube-QA-App/
+├── backend/
+│   ├── app/                        # All FastAPI code (Python package)
+│   │   ├── api/                    # Routers (endpoints)
+│   │   │   └── routes.py
+│   │   ├── core/                   # Core config & startup
+│   │   │   └── config.py
+│   │   ├── models/                 # Pydantic schemas / DB models
+│   │   │   └── schemas.py
+│   │   ├── services/               # Business logic
+│   │   │   ├── qa.py
+│   │   │   └── youtube.py
+│   │   ├── stores/                 # Session/data stores
+│   │   │   └── sessions.py
+│   │   ├── utils/                  # Helpers/utilities
+│   │   │   └── text.py             # (example, e.g. for formatting)
+│   │
+│   ├── server.py                   # Entrypoint (FastAPI app)
+│   ├── Dockerfile                  # Backend Dockerfile (rename to generic)
+│
+├── frontend/
+│   ├── streamlit_app.py            # Streamlit entrypoint
+│   ├── frontend.Dockerfile
+│
+├── requirements.txt                # Shared dependencies
+├── docker-compose.yml              # Compose setup
+├── .env                            # Env variables (gitignored)
+├── .gitignore
+└── README.md
+
 ```
 
 ## Usage
