@@ -96,6 +96,15 @@ def create_qa_chain(transcript: str):
 async def root():
     return {"message": "Welcome to the Youtube Video Q&A API!"}
 
+@app.get("/sessions")
+async def list_sessions():
+    return {
+        "sessions": [
+            {"session_id": sid, "video_id": data["video_id"], "url": data["url"]}
+            for sid, data in sessions.items()
+        ]
+    }
+
 @app.post("/process_video", response_model=VideoResponse)
 async def process_video(request: VideoRequest):
     """Process a Youtube video and create a QA chain"""

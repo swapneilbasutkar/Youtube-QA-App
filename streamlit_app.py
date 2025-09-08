@@ -2,6 +2,9 @@ import streamlit as st
 import requests
 import json
 from typing import Dict, List
+import os
+
+API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 
 st.set_page_config(
     page_title="YouTube Video Q&A",
@@ -16,8 +19,6 @@ if "current_session_id" not in st.session_state:
     st.session_state.current_session_id = None
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
-
-API_BASE_URL = "http://localhost:8000"  # Change this if your API is hosted elsewhere
 
 def process_video(youtube_url: str) -> Dict:
     """Send video processing request to the API"""
